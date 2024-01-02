@@ -1,16 +1,22 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+{% load static %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'feed:index' %}">Image Sharer</a>
+        <a class="navbar-brand text-link fw-bold fs-4" href="{% url 'feed:index' %}">Image Sharer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'feed:index' %}">Home</a>
+                <a class="nav-link fs-5 text-link" aria-current="page" href="{% url 'feed:index' %}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'feed:post' %}">Create New Post</a>
+                <a class="nav-link fs-5 text-link" href="{% url 'feed:post' %}">Create New Post</a>
+            </li>
+            <li class="nav-item">
+                <i class="bi bi-sun-fill mx-3" id="icon"></i>
             </li>
             </ul>
         </div>

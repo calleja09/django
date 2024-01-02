@@ -1,0 +1,62 @@
+:root[data-theme="light"] {
+    --text: #0f1014;
+    --text-link: #15150F;
+    --button: #d3d2c9;
+    --button-hover: #656565;
+    --label: #15150F;
+    --background: #f0f0f4;
+    --primary: #3a3b55;
+    --secondary: #9b9bbf;
+    --accent: #56588f;
+  }
+  :root[data-theme="dark"] {
+    --text: #ebecf0;
+    --text-link: #f0f0ea;
+    --button: #656565;
+    --button-hover: #d3d2c9;
+    --label: #f0f0ea;
+    --background: #0b0b0f;
+    --primary: #aaabc5;
+    --secondary: #404064;
+    --accent: #7071a9;
+  }
+  
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--background);
+    color: var(--text) !important;
+    transition: 0.3s;
+}
+.card{
+    background-color: var(--secondary);
+    border: 5px solid var(--primary);
+    color: var(--text);
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+}
+#icon{
+    color: var(--label);
+    cursor: pointer;
+}
+
+.text-link, h2, h4, form, .btn{
+    color: var(--text-link);
+}
+a.text-link:hover{
+    color: var(--secondary);
+}
+.btn-design{
+    background-color: var(--button);
+    
+}
+.btn-design:hover{
+    background-color: var(--accent);
+}
+
+form.form-design{
+    padding: inherit;
+    border: 2px solid var(--accent);
+}

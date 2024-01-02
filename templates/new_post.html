@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}New Post {% endblock %}
+{% block title %} New Post {% endblock %}
 
 {% block body %} 
-    <form method="POST" action="" enctype="multipart/form-data" class="col-sm-4 offset-sm-4 py-5 my-5">
-        <h2>Upload Image</h2>
+    <form method="POST" action="" enctype="multipart/form-data" class="col-sm-6 offset-sm-3 py-5 my-5 form-design shadow shadow-lg">
+        <h2 style="text-align: center">Upload Image</h2>
+        <br>
         {% csrf_token %}
         {{form.as_p}}
-        <div>
-            <button type="submit" class="btn btn-success btn-lg">Post</button>
+        <div class="d-grid gap-2 col-12 mx-auto">
+            <button type="submit" class=" btn btn-design">Post</button>
         </div>
     </form>
 {% endblock  %}

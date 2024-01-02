@@ -2,8 +2,15 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.views.generic import TemplateView, DetailView, FormView
 
+from django.views.generic.edit import DeleteView
+
 from .forms import PostForm
 from .models import Post
+
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = "/"
+    template_name = "deletion.html"
 
 class HomepageView(TemplateView):
     template_name = "home.html"
@@ -18,6 +25,7 @@ class PostDetailView(DetailView):
     model = Post
 
 class AddPostView(FormView):
+
     template_name = "new_post.html"
     form_class = PostForm
     success_url = "/"
@@ -34,3 +42,4 @@ class AddPostView(FormView):
         )
         messages.add_message(self.request, messages.SUCCESS, 'Posted successfully.')
         return super().form_valid(form)
+    
