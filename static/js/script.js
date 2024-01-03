@@ -1,25 +1,28 @@
-// let icon = document.getElementsByClassName("icon");
-// icon.onclick = function toggleTheme(){
-        const root = document.documentElement;
-    //     root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
-// }
-
-// // icon.onclick = function(){
-// //     document.body.classList.toggle("")
-// // }
-
+const root = document.documentElement;
 const toggle = document.getElementById("icon");
-const body = document.querySelector('body');
+
+// Check the saved theme when the page loads
+document.addEventListener('DOMContentLoaded', (event) => {
+    let theme = localStorage.getItem("theme");
+    if (theme === "enabled"){
+        toggle.classList.remove('bi-moon-fill');
+        toggle.classList.add('bi-sun-fill');
+        root.dataset.theme = 'dark';
+    } else {
+        toggle.classList.remove('bi-sun-fill');
+        toggle.classList.add('bi-moon-fill');
+        root.dataset.theme = 'light';
+    }
+});
 
 toggle.addEventListener('click', function(){
-    this.classList.toggle('bi-moon-fill')
-    if(this.classList.toggle('bi-sun-fill')){
-        root.dataset.theme = 'light'
+    this.classList.toggle('bi-sun-fill');
+    if(this.classList.toggle('bi-moon-fill')){
+        root.dataset.theme = 'light';
+        localStorage.setItem("theme", "disabled");
     }
-    // else if(this.classList.toggle('bi-sun-fill')){
-    //     root.dataset.theme = 'light'
-    // }
     else{
-        root.dataset.theme = 'dark'
+        root.dataset.theme = 'dark';
+        localStorage.setItem("theme", "enabled");
     }
-})
+});
